@@ -1,0 +1,37 @@
+version: 2
+jobs:
+  build.lts:
+    docker:
+      - image: "ubuntu:latest"
+    steps:
+      - run:
+          name: Reloading apt indexes
+          command: 'apt-get update'
+      - run:
+          name: Installing git
+          command: 'apt-get install -y git'
+      - checkout
+      - run:
+          name: Downloading submodules
+          command: 'git submodule update --init --recursive --depth 50'
+      - run:
+          name: Installing system deps
+          command: './.circleci/install-sysdeps.sh'
+      - run:
+          name: Installing luarocks
+          command: './.circleci/install-luarocks.sh'
+      - run:
+          name: Collecting Lua deps
+          command: './.circleci/install-luadeps.sh'
+      - run:
+          name: Creating bundle
+          command: './.circleci/make-bundle.sh'
+      - run: apt-get install -y ca-certificates
+      - store_artifacts:
+          path: /tmp/artifacts
+
+workflows:
+  version: 2
+  build-all:
+    jobs:
+      - build.lts

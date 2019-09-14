@@ -16,6 +16,10 @@
    limitations under the License.
 ]]--
 
+-- Required for "bundle" mode
+package.path = './deps/share/lua/5.3/?.lua;./deps/share/lua/5.3/?/init.lua;'..package.path
+package.cpath = './deps/lib/lua/5.3/?.so;'..package.cpath
+
 local wii = require 'xwiimote'
 local lgi = require 'lgi'
 local	GLib,		Gdk,		GObject,		Gio =
