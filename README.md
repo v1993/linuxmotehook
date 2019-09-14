@@ -1,4 +1,4 @@
-# linuxmotehook - cemuhook-compliant wiimote motion provider for linux
+# linuxmotehook - cemuhook-compliant wiimote motion provider for linux ![CircleCI](https://img.shields.io/circleci/build/github/v1993/linuxmotehook)
 
 Being unable to use WiiMote as motion source under Linux with cemu, I decided to move on and write motion provider by myself, so here we have it.
 
