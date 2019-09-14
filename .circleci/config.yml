@@ -25,6 +25,9 @@ jobs:
           command: './.circleci/make-bundle.sh'
       - store_artifacts:
           path: /tmp/artifacts
+      - persist_to_workspace:
+          root: /tmp/artifacts
+          paths: './*'
 
   publish-github-release:
     docker:
