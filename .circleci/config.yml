@@ -31,7 +31,7 @@ jobs:
       - image: cibuilds/github:0.12
     steps:
       - checkout
-      - apt-get install -y lua5.3 ca-certificates
+      - run: apt-get install -y lua5.3 ca-certificates
       - attach_workspace:
           at: /tmp/artifacts
       - run:
