@@ -12,6 +12,11 @@ Being unable to use WiiMote as motion source under Linux with cemu, I decided to
 * * [`crc32`](https://luarocks.org/modules/hjelmeland/crc32) for Lua 5.3
 * I think you got this, but Linux machine with recent kernel which can be paired with WiiMote
 
+To use bundle, following non-standard packages are required on Ubuntu:
+
+* `lua5.3`
+* `libxwiimote2`
+
 # Usage
 
 1. Install requiments listed above
@@ -28,6 +33,7 @@ WiiMotes can be connected and disconnected both before starting or while working
 3. Ability to calibrate axis values to prevent oversensitivity (real life example: stop chaotic jumping in NSMB: WiiU).
 4. Usable as button source as well.
 5. Support for few WiiMotes (require tesing).
+6. Standalone bundle which can be run with minimal setup.
 
 # Known problems and limitations
 

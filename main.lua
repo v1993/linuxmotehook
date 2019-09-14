@@ -33,8 +33,11 @@ Supported command line args:
 end
 
 -- Required for "bundle" mode
-package.path = './deps/share/lua/5.3/?.lua;./deps/share/lua/5.3/?/init.lua;'..package.path
-package.cpath = './deps/lib/lua/5.3/?.so;'..package.cpath
+do
+	local dir = debug.getinfo(1).source:match("@(.*)main.lua$")
+	package.path = table.concat({dir, 'deps/share/lua/5.3/?.lua;', dir, 'deps/share/lua/5.3/?/init.lua;', package.path})
+	package.cpath = dir..'deps/lib/lua/5.3/?.so;'..package.cpath
+end
 
 local wii = require 'xwiimote'
 local lgi = require 'lgi'
