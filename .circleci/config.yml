@@ -44,7 +44,10 @@ workflows:
   version: 2
   build-all:
     jobs:
-      - build.lts
+      - build.lts:
+          filters:
+            tags:
+              only: /^\d+\.\d+\.\d+$/
       - publish-github-release:
           requires:
             - build.lts
