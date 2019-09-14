@@ -1,4 +1,4 @@
-# linuxmotehook - cemuhook-compliant wiimote motion provider for linux ![CircleCI](https://img.shields.io/circleci/build/github/v1993/linuxmotehook)
+# linuxmotehook - cemuhook-compliant wiimote motion provider for linux [![CircleCI](https://img.shields.io/circleci/build/github/v1993/linuxmotehook)](https://circleci.com/gh/v1993/linuxmotehook)
 
 Being unable to use WiiMote as motion source under Linux with cemu, I decided to move on and write motion provider by myself, so here we have it.
 
@@ -6,10 +6,11 @@ Being unable to use WiiMote as motion source under Linux with cemu, I decided to
 
 * WiiRemote (MotionPlus is VERY recommended)
 * Lua 5.3
-* [`lgi`](https://github.com/pavouk/lgi) for Lua 5.3 (preferably from git master)
-* [`lua-xwiimote`](https://github.com/v1993/lua-xwiimote) for Lua 5.3
-* [`crc32`](https://luarocks.org/modules/hjelmeland/crc32) for Lua 5.3
-* I think you got this, but Linux machine with recent kernel which cam be paired with WiiMote
+* Lua libraries (they are included in bundle or alternatively can be installed with luarocks manually):
+* * [`lgi`](https://github.com/pavouk/lgi) for Lua 5.3 (preferably from git master)
+* * [`lua-xwiimote`](https://github.com/v1993/lua-xwiimote) for Lua 5.3
+* * [`crc32`](https://luarocks.org/modules/hjelmeland/crc32) for Lua 5.3
+* I think you got this, but Linux machine with recent kernel which can be paired with WiiMote
 
 # Usage
 
@@ -34,7 +35,7 @@ WiiMotes can be connected and disconnected both before starting or while working
 2. Nunchuck is not supported, but is planned to.
 3. WiiMote may fail to disconnect correctly sometimes and you have to restart program if this happens.
 4. Joysticks are not tested (yet), so be ready to find bugs with them.
-5. It may be complicated to set this program up for regular user, so all-in-one bundle is planned.
+5. While all-in-one bundle does exist, it is not publicly accesible. Release should be made for this.
 
 # Software it was tested with
 
