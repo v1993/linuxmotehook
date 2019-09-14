@@ -35,7 +35,6 @@ WiiMotes can be connected and disconnected both before starting or while working
 2. Nunchuck is not supported, but is planned to.
 3. WiiMote may fail to disconnect correctly sometimes and you have to restart program if this happens.
 4. Joysticks are not tested (yet), so be ready to find bugs with them.
-5. While all-in-one bundle does exist, it is not publicly accesible. Release should be made for this.
 
 # Software it was tested with
 
