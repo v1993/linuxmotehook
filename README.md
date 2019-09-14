@@ -8,6 +8,7 @@ Being unable to use WiiMote as motion source under Linux with cemu, I decided to
 * Lua 5.3
 * [`lgi`](https://github.com/pavouk/lgi) for Lua 5.3 (preferably from git master)
 * [`lua-xwiimote`](https://github.com/v1993/lua-xwiimote) for Lua 5.3
+* [`crc32`](https://luarocks.org/modules/hjelmeland/crc32) for Lua 5.3
 * I think you got this, but Linux machine with recent kernel which cam be paired with WiiMote
 
 # Usage
