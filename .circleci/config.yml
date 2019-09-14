@@ -28,7 +28,7 @@ jobs:
 
   publish-github-release:
     docker:
-      - image: cibuilds/github:0.12
+      - image: circleci/golang:1.13
     steps:
       - checkout
       - run: apt-get install -y lua5.3 ca-certificates
@@ -37,6 +37,7 @@ jobs:
       - run:
           name: "Publish Release on GitHub"
           command: |
+            go get github.com/tcnksm/ghr
             VERSION=$(./main.lua --version)
             ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} /tmp/artifacts
 
