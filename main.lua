@@ -16,6 +16,22 @@
    limitations under the License.
 ]]--
 
+if arg[1] == '--version' then
+	print('0.1.0')
+	return true
+elseif arg[1] == '--help' then
+	print[[
+linuxmotehook - cemuhook-compatible motion provider based on XWiimote.
+Edit config.lua to set options.
+
+Supported command line args:
+
+--help      Show this information and exit
+--version   Print version and exit
+]]
+	return true
+end
+
 -- Required for "bundle" mode
 package.path = './deps/share/lua/5.3/?.lua;./deps/share/lua/5.3/?/init.lua;'..package.path
 package.cpath = './deps/lib/lua/5.3/?.so;'..package.cpath
