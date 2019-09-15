@@ -40,7 +40,7 @@ WiiMotes can be connected and disconnected both before starting or while working
 # Known problems and limitations
 
 1. I have only one WiiMote with built-in MotionPlus, so some aspects of program may not work as expected. If they do, file an issue, please!
-2. Nunchuck is not supported, but is planned to.
+2. Nunchuck is not supported, but is planned to. Due to limits of xwiimote version in Ubuntu repository, however, this feature is delayed.
 3. WiiMote may fail to disconnect correctly sometimes and you have to restart program if this happens.
 
 # Software it was tested with

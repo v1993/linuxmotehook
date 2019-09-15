@@ -17,7 +17,7 @@
 ]]--
 
 if arg[1] == '--version' then
-	print('0.1.1')
+	print('0.1.2')
 	return true
 elseif arg[1] == '--help' then
 	print[[

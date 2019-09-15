@@ -118,11 +118,13 @@ end
 -- It have length of 11 bytes and 4 fields
 local deviceStateHeaderLen = 11
 local function deviceStateHeader(id, desc, battery)
-	return ('< B c3 I6 B'):pack(
-		id,					-- ID
-		'\x02\x02\x02',		-- State: connected, device model (we have full gyro), connection type: Bluetooth
-		desc.mac,			-- MAC address
-		getBatteryEnum(battery)	-- Battery
+	return ('< B BBB I6 B'):pack(
+		id,										-- ID
+		0x02,									-- State: connected
+		desc.mplus_connected and 0x02 or 0x01,	-- Device model: full or no gyro
+		0x02,									-- Connection type: Bluetooth
+		desc.mac,								-- MAC address
+		getBatteryEnum(battery)					-- Battery
 	)
 end
 
