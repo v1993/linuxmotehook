@@ -33,7 +33,7 @@ WiiMotes can be connected and disconnected both before starting or while working
 1. Finally working WiiMotehook but for Linux!
 2. Highly configurable nature allowing to map one buttons, accelerometer and gyro axises at your will.
 3. Ability to calibrate axis values to prevent oversensitivity (real life example: stop chaotic jumping in NSMB: WiiU).
-4. Usable as button source as well.
+4. Usable as button source as well, including joysticks.
 5. Support for few WiiMotes (require tesing).
 6. Standalone bundle which can be run with minimal setup.
 
@@ -42,7 +42,6 @@ WiiMotes can be connected and disconnected both before starting or while working
 1. I have only one WiiMote with built-in MotionPlus, so some aspects of program may not work as expected. If they do, file an issue, please!
 2. Nunchuck is not supported, but is planned to.
 3. WiiMote may fail to disconnect correctly sometimes and you have to restart program if this happens.
-4. Joysticks are not tested (yet), so be ready to find bugs with them.
 
 # Software it was tested with
 

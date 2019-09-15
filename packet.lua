@@ -241,9 +241,9 @@ local function sendReport(id, desc, wiistate, clients, battery)
 	local function stick(name, axis)
 		local conf = ckeys[name][axis]
 		if dkeys[conf.plus] then
-			return axis == 'y' and 1 or 255
+			return 255
 		elseif dkeys[conf.minus] then
-			return axis == 'y' and 255 or 001
+			return  001
 		else
 			return 128
 		end

@@ -24,8 +24,8 @@ local config = preset.vertical
 Example overrides:
 
 config.keys.X = 'two'
-config.leftjoy.y.plus = 'down'
-config.rightjoy.x = {plus = 'right', minus = 'left'}
+config.keys.leftjoy.y.plus = 'down'
+config.keys.rightjoy.x = {plus = 'right', minus = 'left'}
 config.accel.x = { 'x', -0.75 }
 config.gyro.p = { 'z', 1 }
 
@@ -35,6 +35,28 @@ config.gyro.p = { 'z', 1 }
 --[[
 config.accel.y = { 'z', -0.5 }
 config.gyro.p = { 'y', -0.5 };
+]]--
+
+-- Make D-Pad act like left joystick (in vertical orientation)
+--[[
+config.keys.leftjoy = {
+	x = {
+		plus = 'right';
+		minus = 'left';
+	};
+	y = {
+		plus = 'up';
+		minus = 'down';
+	};
+}
+]]--
+
+-- To disable D-Pad emulation (for example, if you use it for joystick instead)
+--[[
+config.keys.up = ''
+config.keys.down = ''
+config.keys.left = ''
+config.keys.right = ''
 ]]--
 
 -- End cusomizing here
