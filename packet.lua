@@ -272,7 +272,7 @@ local function sendReport(id, desc, wiistate, clients, battery)
 		(key 'options'	and 0x08 or 0x00) |
 		(key 'R3'		and 0x04 or 0x00) |
 		(key 'L3'		and 0x02 or 0x00) |
-		(key 'share'	and 0x02 or 0x00) ,
+		(key 'share'	and 0x01 or 0x00) ,
 
 		(key 'Y'		and 0x80 or 0x00) |
 		(key 'B'		and 0x40 or 0x00) |
@@ -281,7 +281,7 @@ local function sendReport(id, desc, wiistate, clients, battery)
 		(key 'R1'		and 0x08 or 0x00) |
 		(key 'L1'		and 0x04 or 0x00) |
 		(key 'R2'		and 0x02 or 0x00) |
-		(key 'L2'		and 0x02 or 0x00) ,
+		(key 'L2'		and 0x01 or 0x00) ,
 
 		-- PS and Touch
 		'\0\0',
