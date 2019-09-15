@@ -24,7 +24,7 @@ local config = preset.vertical
 Example overrides:
 
 config.keys.X = 'two'
-config.leftjoyx.y.plus = 'down'
+config.leftjoy.y.plus = 'down'
 config.rightjoy.x = {plus = 'right', minus = 'left'}
 config.accel.x = { 'x', -0.75 }
 config.gyro.p = { 'z', 1 }
