@@ -15,9 +15,9 @@ make rock
 luarocks make --tree "$DEPSDIR" lgi-*.rockspec
 cd ..
 
-# Install lua-xwiimote from dev server for now
+# Install lua-xwiimote from mainstream
 
-luarocks install --server=https://luarocks.org/dev --tree "$DEPSDIR" lua-xwiimote
+luarocks install --tree "$DEPSDIR" lua-xwiimote
 
 # Install crc32 from mainstream
 
