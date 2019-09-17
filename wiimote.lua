@@ -54,7 +54,6 @@ local function eventCallback(desc, wiistate, source, sendcb)
 	local function sendMotion(ev)
 		local ts = getMvTimestamp(ev)
 		if ts ~= desc.mvtime then
-			--print('Sending ', desc.mvtime)
 			send()
 			desc.mvtime = ts
 			desc.accel = desc.accel_last or desc.accel
@@ -70,22 +69,22 @@ local function eventCallback(desc, wiistate, source, sendcb)
 			local available = desc.iface:available()
 			if not available or available == 0 then
 				-- Lookup failed so we're likely disconnected
-				local idx = desc.id + 1
+				local idx, mac = desc.id + 1, desc.mac
 				table.remove(wiistate, idx)
 				-- Update IDs of shifted WiiMotes
 				for i = idx, #wiistate do
 					wiistate[i].id = i - 1
 				end
 				source:destroy()
-				print('WiiMote successfully disconnected')
+				print(('WiiMote (MAC 0x%012X) successfully disconnected'):format(desc.mac))
 				return
 			elseif (available & wii.mplus) ~= 0 and (desc.iface:opened() & wii.mplus) == 0 then
 				-- Motion plus got connected
 				desc.mplus_connected = desc.iface:open(wii.mplus)
 				if not desc.mplus_connected then
-					log.warning('MotionPlus was connected but cannot be opened')
+					log.warning(('MotionPlus was connected but cannot be opened (WiiMote MAC 0x%012X)'):format(desc.mac))
 				else
-					print('MotionPlus is successfuly registered and will be used')
+					print(('MotionPlus is successfuly registered and will be used (WiiMote MAC 0x%012X)'):format(desc.mac))
 				end
 			elseif (available & wii.mplus) == 0 and desc.mplus_connected then
 				-- Motion plus got disconnected
@@ -93,7 +92,7 @@ local function eventCallback(desc, wiistate, source, sendcb)
 				desc.mplus_connected = false
 				desc.mplus = {x = 0, y = 0, z = 0}	-- Reset gyro data to zero
 				desc.mplus_new = nil
-				print('MotionPlus is successfuly disconnected, providen data will be limited to acceleration only')
+				print(('MotionPlus is successfuly disconnected, providen data will be limited to acceleration only (WiiMote MAC 0x%012X)'):format(desc.mac))
 			end
 		elseif ev.key then
 			-- Key pressed/released (don't loose keypresses!)
@@ -143,10 +142,9 @@ local function setup(wiistate, path, MPlusCalibration, sendcb)
 		keys =		{};						-- Pressed keys (none initially)
 		accel =		{x = 0, y = 0, z = 0};	-- Acceleration data
 		mplus =		{x = 0, y = 0, z = 0};	-- Gyro data (if present)
-		mvtime =	0;						-- When last gyro/accel event was fired
+		mvtime =	0;						-- When last accel event was fired
 	}
-	-- Try to open MotionPlus and don't fail if we can't
-	iface:set_mp_normalization(table.unpack(MPlusCalibration))
+
 	desc.mplus_connected = iface:open(wii.mplus)
 	if not desc.mplus_connected then
 		print('Note: no MotionPlus detected, providen data will be limited to acceleration only')
@@ -154,9 +152,12 @@ local function setup(wiistate, path, MPlusCalibration, sendcb)
 		print()
 	end
 
-	-- Not sure if it's dec or hex, go with hex for safety
-	-- desc.id = tonumber(path:match(':(%x%x)/%x%x%x%x:%x%x%x%x:%x%x%x%x.%x%x%x%x$'), 16)
+	-- Set MPlus calibration regardless of anything
+	-- TODO: add individual overrides for WiiMotes
+	iface:set_mp_normalization(table.unpack(MPlusCalibration))
+
 	desc.mac = tonumber(table.concat({path:match(':%x%x/(%x%x%x%x):(%x%x%x%x):(%x%x%x%x).%x%x%x%x$')}), 16)
+	-- This info is not used anywhere, but let it be
 	local devgen = iface:get_devtype():match('gen(%d+)')
 	desc.devgen = devgen and tonumber(devgen) or 0xff
 
@@ -172,7 +173,7 @@ local function setup(wiistate, path, MPlusCalibration, sendcb)
 		return true
 	end)
 	source:attach(lgi.GLib.MainContext.default())
-	print('WiiMote successfully registered')
+	print(('WiiMote successfully registered (MAC 0x%012X)'):format(desc.mac))
 end
 
 return {

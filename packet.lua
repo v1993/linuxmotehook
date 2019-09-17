@@ -166,10 +166,10 @@ local function processIncoming(data, sendcb, endpoint, wiistate)
 	local data = data:sub(21, -1)
 
 	if messageType == IMessage.Version then
-		print('Sending version')
+		log.debug('Sending version')
 		sendcb(addHeader(num2bytestring(maxPver, 2), OMessage.Version, 1001))
 	elseif messageType == IMessage.Ports then
-		--print('Ports requested')
+		log.debug('Sending ports')
 		local numPadRequests = ('<I4'):unpack(data:sub(1, 4))
 
 		if numPadRequests > 4 then return nil end
@@ -192,7 +192,7 @@ local function processIncoming(data, sendcb, endpoint, wiistate)
 			end
 		end
 	elseif messageType == IMessage.Data then
-		--print('Data requested')
+		log.debug('Data requested')
 		local regFlags = bytestring2num(data:sub(1, 1))
 		local regId = bytestring2num(data:sub(2, 2))
 		local regMac = bytestring2num(data:sub(3, 8))
@@ -213,7 +213,7 @@ local function processIncoming(data, sendcb, endpoint, wiistate)
 			end
 		end
 	else
-		print('Unknown message')
+		log.debug('Unknown message')
 	end
 end
 

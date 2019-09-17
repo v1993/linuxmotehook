@@ -177,4 +177,4 @@ GLib.unix_signal_add(GLib.PRIORITY_HIGH, 1, exitNormal)
 GLib.unix_signal_add(GLib.PRIORITY_HIGH, 2, exitNormal)
 GLib.unix_signal_add(GLib.PRIORITY_HIGH, 15, exitNormal)
 
-app:run({arg[0]})
+app:run({arg[0], ...})
