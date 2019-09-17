@@ -128,7 +128,7 @@ local function eventCallback(desc, wiistate, source, sendcb)
 	end
 end
 
-local function setup(wiistate, path, MPlusCalibration, sendcb)
+local function setup(wiistate, path, config, sendcb)
 	local iface = assert(wii.iface(path))
 	assert(iface:open(wii.core | wii.accel))
 	iface:watch(true) -- To detect mplus connection/disconnection
@@ -152,14 +152,19 @@ local function setup(wiistate, path, MPlusCalibration, sendcb)
 		print()
 	end
 
-	-- Set MPlus calibration regardless of anything
-	-- TODO: add individual overrides for WiiMotes
-	iface:set_mp_normalization(table.unpack(MPlusCalibration))
-
 	desc.mac = tonumber(table.concat({path:match(':%x%x/(%x%x%x%x):(%x%x%x%x):(%x%x%x%x).%x%x%x%x$')}), 16)
 	-- This info is not used anywhere, but let it be
 	local devgen = iface:get_devtype():match('gen(%d+)')
 	desc.devgen = devgen and tonumber(devgen) or 0xff
+
+	-- Set MPlus calibration regardless of anything
+	do
+		local calibdata = config.MPlusCalibrationOverrides[desc.mac] or config.MPlusCalibration
+		if calibdata ~= config.MPlusCalibration then
+			print('Note: using individual calibration override')
+		end
+		iface:set_mp_normalization(table.unpack(calibdata))
+	end
 
 	wiistate[desc.id+1] = desc
 	local fd = iface:get_fd()

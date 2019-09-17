@@ -67,9 +67,18 @@ config.keys.right = ''
 config.ACCEL_G			= 103/9.8;		-- 1 m/s^2 in abstract units
 config.GYRO_DEG_PER_S	= 335160/1860;	-- 1 deg/s in abstract units
 
+
 -- MotionPlus calibration data
+-- They are applied to raw values, so orientation configuration don't matter
 -- Notation: X, Y, Z, factor (?)
 
 config.MPlusCalibration = {0, 0, 0, 0}
+
+-- Same, but allow overrides for individual wiimotes based on their MACs (read output to find out those)
+-- TODO: add ability to override gyro directions as well because they differ
+
+config.MPlusCalibrationOverrides = {
+	-- [0x0005057E0330] = {0, 0, math.floor(-config.GYRO_DEG_PER_S*18), 0};
+}
 
 return config

@@ -105,7 +105,7 @@ local wiimonitor = assert(wii.monitor(true))
 
 do
 	for path in wiimonitor:iter() do
-		wiiUtils.setup(wiistate, path, config.MPlusCalibration, packet.send)
+		wiiUtils.setup(wiistate, path, config, packet.send)
 	end
 
 	local res, fd = wiimonitor:set_blocking(false)
@@ -117,7 +117,7 @@ do
 		for path in wiimonitor:iter() do
 			-- It errors if I try to open it immedeately, so wait a second first
 			GLib.timeout_add(GLib.PRIORITY_DEFAULT, 1000, function()
-				wiiUtils.setup(wiistate, path, config.MPlusCalibration, packet.send)
+				wiiUtils.setup(wiistate, path, config, packet.send)
 			end)
 		end
 		return true
