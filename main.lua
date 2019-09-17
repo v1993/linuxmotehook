@@ -59,7 +59,7 @@ config = loadfromdata('config.lua')(loadfromdata('presets.lua')())
 
 local wiistate = { all = {}, pkgcnt = setmetatable({}, {__index = function() return 0 end}) }
 
-local app = Gio.Application { application_id = 'org.v1993.xwiimote-cemu', flags = 'NON_UNIQUE' }
+local app = Gio.Application { application_id = 'org.v1993.linuxmotehook', flags = 'NON_UNIQUE' }
 
 local socket = lgi.Gio.Socket.new('IPV4', 'DATAGRAM', 'UDP')
 socket.blocking = false
