@@ -105,7 +105,8 @@ local function eventCallback(desc, wiistate, source, sendcb)
 		elseif ev.mplus then
 			-- TODO: it breaks PadTest and I have no idea why
 			--sendMotion(ev)
-			desc.mplus_last = ev.mplus
+			local gyro,calibdata  = ev.mplus,desc.calibdata
+			desc.mplus_last = {x = ev.mplus.x*calibdata[5], y = ev.mplus.y*calibdata[6], z = ev.mplus.z*calibdata[7]}
 		end
 		if cnt == EVENT_OVERFLOW then
 			log.critical('Event loop got overflown! Dropping remaining events.')
@@ -159,11 +160,11 @@ local function setup(wiistate, path, config, sendcb)
 
 	-- Set MPlus calibration regardless of anything
 	do
-		local calibdata = config.MPlusCalibrationOverrides[desc.mac] or config.MPlusCalibration
-		if calibdata ~= config.MPlusCalibration then
+		desc.calibdata = config.MPlusCalibrationOverrides[desc.mac] or config.MPlusCalibration
+		if desc.calibdata ~= config.MPlusCalibration then
 			print('Note: using individual calibration override')
 		end
-		iface:set_mp_normalization(table.unpack(calibdata))
+		iface:set_mp_normalization(table.unpack(desc.calibdata))
 	end
 
 	wiistate[desc.id+1] = desc
