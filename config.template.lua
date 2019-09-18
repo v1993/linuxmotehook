@@ -75,10 +75,14 @@ config.GYRO_DEG_PER_S	= 335160/1860;	-- 1 deg/s in abstract units
 
 config.MPlusCalibration = {0, 0, 0, 0, 1, 1, 1}
 
--- Same, but allow overrides for individual wiimotes based on their MACs (read output to find out those)
+-- Same, but allow overrides for individual wiimotes based on their MACs
+-- To figure out MAC and recommended first three values, run `./autocalibrate.lua`
+-- Factor is not really studied yet, so leave it zero
+-- Sign of last three values control direction and only way to figure it out is by using PadTest
+-- You can get is at https://cemuhook.sshnuke.net/padudpserver.html
 
 config.MPlusCalibrationOverrides = {
-	-- [0x0005057E0330] = {0, math.floor(config.GYRO_DEG_PER_S*8), 0, 0, 1, 1, 1};
+	-- [0x0005057E0330] = {235, 1395, 223, 0, 1, 1, 1};
 }
 
 return config

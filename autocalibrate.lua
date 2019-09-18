@@ -120,7 +120,7 @@ app:run({arg[0], ...})
 
 local time = lastTimestamp - startTime
 
-local res = {x/time, y/time, z/time}
+local res = {x//time, y//time, z//time}
 
-print(('Calibration data: %.3f, %.3f, %.3f'):format(table.unpack(res)))
+print(('Calibration data: %d, %d, %d'):format(table.unpack(res)))
 print('Use it as first three values in motion plus calibration')
