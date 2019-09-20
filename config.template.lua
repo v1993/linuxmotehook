@@ -80,6 +80,8 @@ config.MPlusCalibration = {0, 0, 0, 0, 1, 1, 1}
 -- Factor is not really studied yet, so leave it zero
 -- Sign of last three values control direction and only way to figure it out is by using PadTest
 -- You can get is at https://cemuhook.sshnuke.net/padudpserver.html
+-- Strictly speaking, calibration values are specific to MotionPluses and not WiiMotes, but we can't identefy those
+-- So make sure to use same MotionPlus with same WiiMote every time
 
 config.MPlusCalibrationOverrides = {
 	-- [0x0005057E0330] = {235, 1395, 223, 0, 1, 1, 1};

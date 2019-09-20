@@ -38,7 +38,7 @@ if monitor:poll() then
 end
 
 local iface = wii.iface(path)
-print(('Calibrating wiimote at %s (MAC 0x%012X)'):format(path,
+print(('Calibrating wiimote with MAC 0x%012X'):format(path,
 tonumber(table.concat({path:match(':%x%x/(%x%x%x%x):(%x%x%x%x):(%x%x%x%x).%x%x%x%x$')}), 16)))
 
 assert(iface:open(wii.mplus), "Can't open motion plus!")
@@ -104,7 +104,7 @@ end)
 source:attach(lgi.GLib.MainContext.default())
 
 local function exitNormal()
-	print('Exiting early, results may be inaccurate')
+	print('Exiting early, results may be less accurate')
 	app:release()
 end
 
@@ -123,4 +123,4 @@ local time = lastTimestamp - startTime
 local res = {x//time, y//time, z//time}
 
 print(('Calibration data: %d, %d, %d'):format(table.unpack(res)))
-print('Use it as first three values in motion plus calibration')
+print('Use it as first three values in motion plus calibration (leave factor zero and multipliers ones)')
