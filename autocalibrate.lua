@@ -38,8 +38,9 @@ if monitor:poll() then
 end
 
 local iface = wii.iface(path)
-print(('Calibrating wiimote with MAC 0x%012X'):format(path,
-tonumber(table.concat({path:match(':%x%x/(%x%x%x%x):(%x%x%x%x):(%x%x%x%x).%x%x%x%x$')}), 16)))
+print(('Calibrating wiimote with MAC 0x%012X'):format(
+	tonumber(table.concat({path:match(':%x%x/(%x%x%x%x):(%x%x%x%x):(%x%x%x%x).%x%x%x%x$')}), 16))
+)
 
 assert(iface:open(wii.mplus), "Can't open motion plus!")
 
