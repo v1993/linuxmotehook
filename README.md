@@ -27,8 +27,8 @@ To use bundle, following packages should be installed on Ubuntu (checked with mi
 
 1. Install requiments listed above
 2. Download this project
-3. Copy `config.template.json` to `config.json` and edit it if you wish to
-4. Connect your WiiMotes with MotionPlus one-by-one and calibrate each using `autocalibrate.lua`, writing results to `Calibration` in config
+3. Copy `config.template.json` to `config.json` and edit it if you wish to (read GitHub Wiki for details on this)
+4. Connect your WiiMotes with MotionPlus one-by-one and calibrate each using `autocalibrate.lua`, writing results to `Calibration` in config (for your WiiMote MAC of course)
 5. Run `main.lua` in terminal
 6. Get PadTest and test all of your WiiMotes with MotionPlus, inverting some or all axles if required (try changin values 5, 6 and 7 in calibration fields to `-1`)
 7. Use Cemu with Cemuhook as you would with any other motion provider!
