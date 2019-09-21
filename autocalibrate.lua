@@ -28,6 +28,8 @@ local lgi = require 'lgi'
 local	GLib,		Gdk,		GObject,		Gio =
 		lgi.GLib,	lgi.Gdk,	lgi.GObject,	lgi.Gio
 
+local common = require 'common'
+
 local app = Gio.Application { application_id = 'org.v1993.linuxmotehook-autocalibrate', flags = 'NON_UNIQUE' }
 
 local monitor = wii.monitor()
@@ -38,9 +40,7 @@ if monitor:poll() then
 end
 
 local iface = wii.iface(path)
-print(('Calibrating wiimote with MAC 0x%012X'):format(
-	tonumber(table.concat({path:match(':%x%x/(%x%x%x%x):(%x%x%x%x):(%x%x%x%x).%x%x%x%x$')}), 16))
-)
+print(('Calibrating wiimote with MAC 0x%012X'):format(common.pathToMac(path)))
 
 assert(iface:open(wii.mplus), "Can't open motion plus!")
 

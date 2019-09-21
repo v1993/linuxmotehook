@@ -44,18 +44,14 @@ local lgi = require 'lgi'
 local	GLib,		Gdk,		GObject,		Gio =
 		lgi.GLib,	lgi.Gdk,	lgi.GObject,	lgi.Gio
 
+local common = require 'common'
+
 log = lgi.log.domain('xwiimote-cemu')
-getTime = require 'lgi'.GLib.get_monotonic_time
+getTime = lgi.GLib.get_monotonic_time
 
-local scriptdir = Gio.File.new_for_path(debug.getinfo(1).source:match("@(.*)$")):get_parent()
+loadfromdata = common.makeLoader()
 
-local function loadfromdata(name)
-	local file = scriptdir:get_child(name)
-	assert(file:query_exists(), 'Uable to open load script ' .. name)
-	return assert(loadfile(file:get_path()))
-end
-
-config = loadfromdata('config.lua')(loadfromdata('presets.lua')())
+config = loadfromdata('configloader.lua')()
 
 local wiistate = { all = {}, pkgcnt = setmetatable({}, {__index = function() return 0 end}) }
 

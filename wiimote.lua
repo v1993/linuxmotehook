@@ -16,6 +16,7 @@
 
 local lgi = require 'lgi'
 local wii = require 'xwiimote'
+local common = require 'common'
 
 local function getMvTimestamp(ev)
 	-- Convert event timestamp to microseconds (accurate)
@@ -153,7 +154,7 @@ local function setup(wiistate, path, config, sendcb)
 		print()
 	end
 
-	desc.mac = tonumber(table.concat({path:match(':%x%x/(%x%x%x%x):(%x%x%x%x):(%x%x%x%x).%x%x%x%x$')}), 16)
+	desc.mac = common.pathToMac(path)
 	-- This info is not used anywhere, but let it be
 	local devgen = iface:get_devtype():match('gen(%d+)')
 	desc.devgen = devgen and tonumber(devgen) or 0xff
