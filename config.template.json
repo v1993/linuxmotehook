@@ -1,6 +1,6 @@
 {
 	// Profile to use
-	"UseProfile": "horizontal",
+	"UseProfile": "Horizontal",
 
 	// Calibration data for your WiiMotes (example is for my). Use `./autocalibrate.lua` to figure out first three values
 	// and PadTest for last three (-1/1). One in middle can be left zero.

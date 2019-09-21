@@ -22,16 +22,19 @@
 
 	// Base constants which are required in every configuration
 
-	"base": {
+	"baseBuiltin": {
 		"ACCEL_GRAV_WII":	103,	// Gravitational acceleration (in raw data units)
 		"ACCEL_GRAV_REAL":	9.8,	// Gravitational acceleration (in m/s²)
 		"GYRO_MAX_WII":		335160,	// Maximal rotation your MotionPlus can handle out (in raw data units)
 		"GYRO_MAX_REAL":	1860,	// Maximal rotation your MotionPlus can handle out (deg/s)
 	},
 
+	"base": {
+		"basedOn": ["baseOverride", "baseBuiltin"]
+	},
 
 	// Read GitHub wiki for more information on this
-	"vertical": {
+	"Vertical": {
 		"basedOn": "base",
 
 		"keys": {
@@ -58,7 +61,7 @@
 		}
 	},
 
-	"horizontal": {
+	"Horizontal": {
 		"basedOn": "base",
 
 		"keys": {
@@ -85,7 +88,7 @@
 		}
 	},
 
-	"disableDPad": {
+	"Disable D-Pad": {
 		"keys": {
 			"up":		"",
 			"right":	"",
@@ -94,8 +97,8 @@
 		}
 	},
 
-	"horizontalLeftJoy": {
-		"basedOn": ["disableDPad", "horizontal"],
+	"Horizontal with left joystick": {
+		"basedOn": ["Disable D-Pad", "Horizontal"],
 		"keys": {
 			"leftjoy": {
 				"x": {
