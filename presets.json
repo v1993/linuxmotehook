@@ -30,9 +30,9 @@
 	},
 
 
-	// Read GitHub wiki for information on this
+	// Read GitHub wiki for more information on this
 	"vertical": {
-		"basedOn": ["base"],
+		"basedOn": "base",
 
 		"keys": {
 			"up":		"up",
@@ -59,7 +59,7 @@
 	},
 
 	"horizontal": {
-		"basedOn": ["base"],
+		"basedOn": "base",
 
 		"keys": {
 			"up":		"right",
@@ -84,4 +84,29 @@
 			"r": ["z", 1]
 		}
 	},
+
+	"disableDPad": {
+		"keys": {
+			"up":		"",
+			"right":	"",
+			"down":		"",
+			"left": 	"",
+		}
+	},
+
+	"horizontalLeftJoy": {
+		"basedOn": ["disableDPad", "horizontal"],
+		"keys": {
+			"leftjoy": {
+				"x": {
+					"minus": "up",
+					"plus": "down"
+				},
+				"y": {
+					"minus": "left",
+					"plus": "right"
+				}
+			}
+		}
+	}
 }

@@ -193,5 +193,3 @@ local function compileProfile(profname)
 end
 
 return compileProfile(resolvePropertyDT(configRaw, {'UseProfile'}, 'string'))
-
---os.exit(0)
