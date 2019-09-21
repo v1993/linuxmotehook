@@ -13,7 +13,7 @@ Being unable to use WiiMote as motion source under Linux with cemu, I decided to
 * * [`lgi`](https://github.com/pavouk/lgi) for Lua 5.3 (preferably from git master): Licensed under MIT
 * * [`lua-xwiimote`](https://github.com/v1993/lua-xwiimote) for Lua 5.3: Licensed under MIT
 * * [`crc32`](https://luarocks.org/modules/hjelmeland/crc32) for Lua 5.3: Licensed under MIT
-* * [`luajson`](https://github.com/harningt/luajson) for Lua 5.3: Licensed under MIT
+* * [`luajson`](https://github.com/harningt/luajson) for Lua 5.3: Licensed under MIT (not included into bundle as can be installed as Ubuntu package)
 * * [`LPeg`](https://luarocks.org/modules/gvvaughan/lpeg) for Lua 5.3 (optional): Licensed under MIT
 * I think you got this, but Linux machine with recent kernel which can be paired with WiiMote
 
