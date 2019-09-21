@@ -134,6 +134,10 @@ local function cleanupClients(clients, now, connected)
 			connected[k] = true
 		end
 	end
+
+	for k,v in ipairs(todelete) do
+		clients[v] = nil
+	end
 end
 
 GLib.timeout_add(GLib.PRIORITY_DEFAULT, 1000, function()
@@ -154,7 +158,7 @@ GLib.timeout_add(GLib.PRIORITY_DEFAULT, 1000, function()
 	end
 
 	for k,v in ipairs(todelete) do
-		todelete[v] = nil
+		wiistate.pkgcnt[v] = nil
 	end
 
 	return true
