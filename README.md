@@ -13,19 +13,22 @@ Being unable to use WiiMote as motion source under Linux with cemu, I decided to
 * * [`lgi`](https://github.com/pavouk/lgi) for Lua 5.3 (preferably from git master): Licensed under MIT
 * * [`lua-xwiimote`](https://github.com/v1993/lua-xwiimote) for Lua 5.3: Licensed under MIT
 * * [`crc32`](https://luarocks.org/modules/hjelmeland/crc32) for Lua 5.3: Licensed under MIT
+* * [`luajson`](https://github.com/harningt/luajson) for Lua 5.3: Licensed under MIT
+* * [`LPeg`](https://luarocks.org/modules/gvvaughan/lpeg) for Lua 5.3 (optional): Licensed under MIT
 * I think you got this, but Linux machine with recent kernel which can be paired with WiiMote
 
 To use bundle, following packages should be installed on Ubuntu (checked with minimal installation):
 
 * `lua5.3`
 * `libxwiimote2`
+* `lua-json`
 
 # Usage
 
 1. Install requiments listed above
 2. Download this project
-3. Copy `config.template.lua` to `config.lua` and edit it if you wish to
-4. Connect your WiiMotes with MotionPlus one-by-one and calibrate each using `autocalibrate.lua`, writing results to `MPlusCalibrationOverrides` in config
+3. Copy `config.template.json` to `config.json` and edit it if you wish to
+4. Connect your WiiMotes with MotionPlus one-by-one and calibrate each using `autocalibrate.lua`, writing results to `Calibration` in config
 5. Run `main.lua` in terminal
 6. Get PadTest and test all of your WiiMotes with MotionPlus, inverting some or all axises if required (try changin values 5, 6 and 7 in calibration fields to `-1`)
 7. Use Cemu with Cemuhook as you would with any other motion provider!

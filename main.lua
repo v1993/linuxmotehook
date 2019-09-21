@@ -17,12 +17,12 @@
 ]]--
 
 if arg[1] == '--version' then
-	print('0.1.6')
+	print('0.2.0-alpha1')
 	return true
 elseif arg[1] == '--help' then
 	print[[
 linuxmotehook - cemuhook-compatible motion provider based on XWiimote.
-Edit config.lua to set options.
+Edit config.json to set options.
 
 Supported command line args:
 

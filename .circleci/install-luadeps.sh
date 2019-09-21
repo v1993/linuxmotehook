@@ -22,3 +22,7 @@ luarocks install --tree "$DEPSDIR" lua-xwiimote
 # Install crc32 from mainstream
 
 luarocks install --tree "$DEPSDIR" crc32
+
+# Install lpeg (optional but good for parsing) from mainstream
+
+luarocks install --tree "$DEPSDIR" lpeg

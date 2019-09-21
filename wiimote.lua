@@ -163,7 +163,7 @@ local function setup(wiistate, path, config, sendcb)
 	do
 		desc.calibdata = config.MPlusCalibrationOverrides[desc.mac] or config.MPlusCalibration
 		if desc.calibdata ~= config.MPlusCalibration then
-			print('Note: using individual calibration override')
+			print('Note: using individual calibration values')
 		end
 		iface:set_mp_normalization(table.unpack(desc.calibdata))
 	end
