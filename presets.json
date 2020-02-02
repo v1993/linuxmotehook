@@ -24,7 +24,7 @@
 
 	"baseBuiltin": {
 		"ACCEL_GRAV_WII":	103,	// Gravitational acceleration (in raw data units)
-		"ACCEL_GRAV_REAL":	9.8,	// Gravitational acceleration (in m/s²)
+		"ACCEL_GRAV_REAL":	1,		// Gravitational acceleration (in Gs)
 		"GYRO_MAX_WII":		335160,	// Maximal rotation your MotionPlus can handle out (in raw data units)
 		"GYRO_MAX_REAL":	1860,	// Maximal rotation your MotionPlus can handle out (deg/s)
 	},

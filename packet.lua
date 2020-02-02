@@ -198,13 +198,17 @@ local function processIncoming(data, sendcb, endpoint, wiistate)
 		local regMac = bytestring2num(data:sub(3, 8))
 		local newdat = {time = getTime(); endpoint = endpoint; id = clientID}
 		if regFlags == 0 then
+			log.debug('...for all ports')
 			wiistate.all[clientID] = newdat
 		elseif (regFlags & 0x01) ~= 0 then
-			local desc = wiistate[regId + 1]
+			local wiiId = regId + 1
+			local desc = wiistate[wiiId]
 			if desc then
 				desc.clients[clientID] = newdat
 			end
+			log.debug('...for wiimote %d%s', wiiId, desc and '' or ' (not found)')
 		elseif (regFlags & 0x02) ~= 0 then
+			-- FIXME: it can be slow
 			for k,desc in ipairs(wiistate) do
 				if desc.mac == regMac then
 					desc.clients[clientID] = newdat

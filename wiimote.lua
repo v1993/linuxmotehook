@@ -132,7 +132,13 @@ end
 
 local function setup(wiistate, path, config, sendcb)
 	local iface = assert(wii.iface(path))
-	assert(iface:open(wii.core | wii.accel))
+	do
+		local res, err = iface:open(wii.core | wii.accel)
+		if not res then
+			log.warning([[Failed to open basic WiiMote interfaces at `%s' with error `%s', ignoring it]], path, err)
+			return
+		end
+	end
 	iface:watch(true) -- To detect mplus connection/disconnection
 	local desc = {
 		-- Metainfo
