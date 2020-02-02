@@ -61,6 +61,20 @@
 		}
 	},
 
+	"Pointed away": {
+		"basedOn": "Vertical",
+
+		"accel": {
+			"y": ["z", -1],
+			"z": ["y", 1]
+		},
+
+		"gyro": {
+			"y": ["x", 1],
+			"r": ["y", 1]
+		}
+	},
+
 	"Horizontal": {
 		"basedOn": "base",
 
