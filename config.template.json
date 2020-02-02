@@ -6,7 +6,7 @@
 	// and PadTest for last three (-1/1). One in middle can be left zero.
 	"Calibration": {
 		0x0005057E0330: [235, 1395, 223, 0, 1, 1, 1]
-	}
+	},
 
 	// For information on how to create custom profile, read GitHub wiki
 }
