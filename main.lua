@@ -35,7 +35,7 @@ end
 -- Required for "bundle" mode
 do
 	local dir = debug.getinfo(1).source:match("@(.*)main.lua$")
-	package.path = table.concat({dir, 'deps/share/lua/5.3/?.lua;', dir, 'deps/share/lua/5.3/?/init.lua;', package.path})
+	package.path = table.concat({dir, '?.lua;' ,dir, 'deps/share/lua/5.3/?.lua;', dir, 'deps/share/lua/5.3/?/init.lua;', package.path})
 	package.cpath = dir..'deps/lib/lua/5.3/?.so;'..package.cpath
 end
 
