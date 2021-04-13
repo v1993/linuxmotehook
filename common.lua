@@ -33,7 +33,7 @@ return {
 	gyro	= {'p', 'y', 'r'};
 
 	pathToMac = function(path)
-		return tonumber(table.concat({path:match(':%x%x/(%x%x%x%x):(%x%x%x%x):(%x%x%x%x).%x%x%x%x$')}), 16)
+		return tonumber(table.concat({path:match('(%x%x%x%x):(%x%x%x%x):(%x%x%x%x).%x%x%x%x$')}), 16)
 	end;
 	makeLoader = function()
 		return function(name, msg)
