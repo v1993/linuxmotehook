@@ -75,6 +75,17 @@
 		}
 	},
 
+	"Dolphin": {
+		"basedOn": "Pointed away",
+
+		"keys": {
+			"L1": "minus",
+			"R1": "plus",
+			"L2": "one",
+			"R2": "two"
+		}
+	},
+
 	"Horizontal": {
 		"basedOn": "base",
 

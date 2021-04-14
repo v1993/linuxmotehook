@@ -59,3 +59,6 @@ They are really wanted tho, so if you have separate MPlus, make sure to report w
 
 1. PadTest -- program used to test motion sources. Leaving gyro noise aside, works flawlessly.
 2. Cemu(hook) itself -- tested with few games, works fine.
+3. Citra -- tested with Kirby: Planet Robobot, may loose orientation a bit but is still very playable (much better than right mouse button).
+4. Dolphin -- tested with few games. Buttons are functioning flawlessly and motion is working ok, but it is recommended to use built-in means
+of connecting WiiMote unless required otherwise. `Dolphin` profile is made specifically for this emulator.
