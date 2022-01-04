@@ -1,4 +1,5 @@
 # linuxmotehook - cemuhook-compliant wiimote motion provider for linux
+## Note: due to known issues with this program a replacement is being developed. Once it's complete, this repository will be archived.
 [![CircleCI](https://img.shields.io/circleci/build/github/v1993/linuxmotehook)](https://circleci.com/gh/v1993/linuxmotehook)
 [![GitHub Releases](https://img.shields.io/github/downloads/v1993/linuxmotehook/latest/total)](https://github.com/v1993/linuxmotehook/releases/latest)
 [![Ko-Fi](https://img.shields.io/badge/sponsor-Ko--Fi-brightgreen)](https://ko-fi.com/v19930312)
